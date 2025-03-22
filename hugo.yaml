@@ -1,0 +1,223 @@
+baseURL: https://cmlark.love
+languageCode: zh-cn
+title: cmlark's blog
+theme: PaperMod
+
+# 构建设置,启用全局压缩
+# config.yaml
+
+# 构建全局设置
+build:
+  writeStats: true  # 生成资源统计文件用于分析
+  noJSConfigInAssets: true  # 禁用自动生成的 jsconfig.json
+
+# 资源压缩配置
+minify:
+  # 全局压缩开关
+  minifyOutput: true  # 启用所有格式的压缩
+  
+  # 各格式独立控制
+  disableHTML: false  # 启用 HTML 压缩（默认开启）
+  disableCSS: false   # 启用 CSS 压缩
+  disableJS: false    # 启用 JavaScript 压缩
+  disableSVG: false   # 启用 SVG 压缩
+  disableXML: false   # 启用 XML 压缩
+  disableJSON: false  # 启用 JSON 压缩
+
+  # 高级压缩设置
+  tdewolff:  # 使用更高效的 tdewolff 压缩引擎
+    css:
+      keepCSS2: true  # 保持 CSS2 兼容性
+      precision: 2    # 小数位精度
+    js:
+      keepVarNames: false  # 混淆变量名
+      version: 2022        # ECMAScript 版本
+    html:
+      keepWhitespace: false  # 完全删除空白字符
+
+# 图片处理配置
+imaging:
+  format: avif  # 优先输出 AVIF 格式（现代高效格式）
+  quality: 80    # 质量平衡值 (1-100)
+  anchor: center # 裁剪对齐方式
+  resampleFilter: Lanczos  # 高级重采样算法
+
+  # 响应式图片预设
+  resizeOptions:
+    small:
+      width: 480
+      height: 320
+      method: Fill
+    medium:
+      width: 800
+      height: 600
+    large:
+      width: 1200
+      height: 900
+
+# 资源缓存策略
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: -1  # 永久缓存
+  images:
+    dir: :resourceDir/_gen
+    maxAge: -1
+
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disablexml: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: cmlark's blog
+  description: "A blog about software development, technology, and other things."
+  keywords:
+    [
+      blog,
+      software,
+      technology,
+      development,
+      cmlark,
+      软件,
+      技术,
+      开发,
+      博客,
+      程序员,
+    ]
+  author: cmlark
+  images: ["<link to your image>"]
+  DateFormat: "2025-3-20"
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    favicon: /icons/logo.ico
+    favicon16x16: /icons/favicon-16x16.ico
+    favicon32x32: /icons/favicon-32x32.ico
+    apple_touch_icon: /icons/favicon-256x256.ico
+    safari_pinned_tab: /icons/favicon-32x32.ico
+
+  label:
+    text: "cmlark's home page🫣"
+    icon: "🫣"
+    iconHeight: 35
+
+    # profile-mode
+  profileMode:
+    enabled: true # needs to be explicitly set
+    title: biu biu biu ~ ~ 🌈
+    subtitle: "向左走,向右走~ ~"
+    imageUrl: /images/avatar.png
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: that's me
+    # buttons:
+    #   - name: Telegram
+    #     url: /posts/
+    #   - name: Tags
+    #     url: /tags/
+
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "mailto:cmlark@qq.com"
+    Text: "文章写错啦😱快来敲打敲打博主~" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+menu:
+  main:
+    - identifier: home
+      name: 🏠首页
+      url: /
+      weight: 1
+    - identifier: archives
+      name: 📅归档
+      url: /archives/
+      weight: 5
+    - identifier: search
+      name: 🔍搜索
+      url: /search/
+      weight: 15
+    - identifier: categories
+      name: 📚分类
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: 🏷标签
+      url: /tags/
+      weight: 25
+    - identifier: about
+      name: 📝关于
+      url: /about/
+      weight: 30
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+    # - identifier: example
+    #   name: example.org
+    #   url: https://example.org
+    #   weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai

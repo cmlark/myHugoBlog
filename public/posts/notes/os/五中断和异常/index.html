@@ -1,0 +1,126 @@
+<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>五、中断和异常 | cmlark's blog</title>
+<meta name=keywords content="操作系统"><meta name=description content="1.中断机制的诞生
+为了解决早期计算机资源利用率低的的问题，人们发明了操作系统，引入了中断机制，实现多道程序并发执行。
+本质：发生了中断也就意味着需要操作系统介入，展开管理工作。CPU 收到计时部件发送的中断信号，切换为内核态，操作系统负责处理中断。
+2.中断的概念和作用
+
+当中断发生时，CPU 立即进入核心态。
+当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。
+对于不用的中断信号，会进行不同的处理。
+
+中断可以使 CPU 从用户态切换为核心态，使操作系统获得计算机的控制权。有了终端，才能够实现多道程序并发执行。只有在核心态操作系统才能够执行特权指令。从用户态切换到核心态是通过中断实现的，并且是唯一的途径。
+3.中断的分类
+中断（广义上的）：
+
+
+内中断（也称异常，例外，陷入）
+
+
+信号来源：CPU内部，与当前执行的指令有关。
+
+
+自愿中断——指令中断（系统中断）
+
+
+强迫中断——硬件故障或软件中断
+
+
+
+
+外中断（狭义上的中断）
+
+
+信号来源：CPU外部与但钱执行的指令无关。
+
+
+外设请求
+
+
+人工干预
+
+
+
+
+另一种分类方式：
+
+4.外部中断的处理过程
+
+每条指令执行结束后，CPU 检查是否有外部中断信号
+若有外部中断信号，则需要保护中断进程的 CPU 环境
+根据中断信号类型转入相应的中断处理程序
+恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行
+
+
+5.知识图谱
+"><meta name=author content="cmlark"><link rel=canonical href=http://localhost:1313/posts/notes/os/%E4%BA%94%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF+13Dyqob6ASlTrTye8=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:1313/icons/logo.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/icons/favicon-16x16.ico><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/icons/favicon-32x32.ico><link rel=apple-touch-icon href=http://localhost:1313/icons/favicon-256x256.ico><link rel=mask-icon href=http://localhost:1313/icons/favicon-32x32.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:1313/posts/notes/os/%E4%BA%94%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="http://localhost:1313/posts/notes/os/%E4%BA%94%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/"><meta property="og:site_name" content="cmlark's blog"><meta property="og:title" content="五、中断和异常"><meta property="og:description" content="1.中断机制的诞生 为了解决早期计算机资源利用率低的的问题，人们发明了操作系统，引入了中断机制，实现多道程序并发执行。
+本质：发生了中断也就意味着需要操作系统介入，展开管理工作。CPU 收到计时部件发送的中断信号，切换为内核态，操作系统负责处理中断。
+2.中断的概念和作用 当中断发生时，CPU 立即进入核心态。 当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。 对于不用的中断信号，会进行不同的处理。 中断可以使 CPU 从用户态切换为核心态，使操作系统获得计算机的控制权。有了终端，才能够实现多道程序并发执行。只有在核心态操作系统才能够执行特权指令。从用户态切换到核心态是通过中断实现的，并且是唯一的途径。
+3.中断的分类 中断（广义上的）：
+内中断（也称异常，例外，陷入）
+信号来源：CPU内部，与当前执行的指令有关。
+自愿中断——指令中断（系统中断）
+强迫中断——硬件故障或软件中断
+外中断（狭义上的中断）
+信号来源：CPU外部与但钱执行的指令无关。
+外设请求
+人工干预
+另一种分类方式：
+4.外部中断的处理过程 每条指令执行结束后，CPU 检查是否有外部中断信号 若有外部中断信号，则需要保护中断进程的 CPU 环境 根据中断信号类型转入相应的中断处理程序 恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行 5.知识图谱 "><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-10T21:04:11+08:00"><meta property="article:modified_time" content="2022-04-10T21:04:11+08:00"><meta property="article:tag" content="操作系统"><meta property="og:image" content="http://localhost:1313/%3Clink%20to%20your%20image%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://localhost:1313/%3Clink%20to%20your%20image%3E"><meta name=twitter:title content="五、中断和异常"><meta name=twitter:description content="1.中断机制的诞生
+为了解决早期计算机资源利用率低的的问题，人们发明了操作系统，引入了中断机制，实现多道程序并发执行。
+本质：发生了中断也就意味着需要操作系统介入，展开管理工作。CPU 收到计时部件发送的中断信号，切换为内核态，操作系统负责处理中断。
+2.中断的概念和作用
+
+当中断发生时，CPU 立即进入核心态。
+当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。
+对于不用的中断信号，会进行不同的处理。
+
+中断可以使 CPU 从用户态切换为核心态，使操作系统获得计算机的控制权。有了终端，才能够实现多道程序并发执行。只有在核心态操作系统才能够执行特权指令。从用户态切换到核心态是通过中断实现的，并且是唯一的途径。
+3.中断的分类
+中断（广义上的）：
+
+
+内中断（也称异常，例外，陷入）
+
+
+信号来源：CPU内部，与当前执行的指令有关。
+
+
+自愿中断——指令中断（系统中断）
+
+
+强迫中断——硬件故障或软件中断
+
+
+
+
+外中断（狭义上的中断）
+
+
+信号来源：CPU外部与但钱执行的指令无关。
+
+
+外设请求
+
+
+人工干预
+
+
+
+
+另一种分类方式：
+
+4.外部中断的处理过程
+
+每条指令执行结束后，CPU 检查是否有外部中断信号
+若有外部中断信号，则需要保护中断进程的 CPU 环境
+根据中断信号类型转入相应的中断处理程序
+恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行
+
+
+5.知识图谱
+"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://localhost:1313/posts/"},{"@type":"ListItem","position":2,"name":"五、中断和异常","item":"http://localhost:1313/posts/notes/os/%E4%BA%94%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"五、中断和异常","name":"五、中断和异常","description":"1.中断机制的诞生 为了解决早期计算机资源利用率低的的问题，人们发明了操作系统，引入了中断机制，实现多道程序并发执行。\n本质：发生了中断也就意味着需要操作系统介入，展开管理工作。CPU 收到计时部件发送的中断信号，切换为内核态，操作系统负责处理中断。\n2.中断的概念和作用 当中断发生时，CPU 立即进入核心态。 当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。 对于不用的中断信号，会进行不同的处理。 中断可以使 CPU 从用户态切换为核心态，使操作系统获得计算机的控制权。有了终端，才能够实现多道程序并发执行。只有在核心态操作系统才能够执行特权指令。从用户态切换到核心态是通过中断实现的，并且是唯一的途径。\n3.中断的分类 中断（广义上的）：\n内中断（也称异常，例外，陷入）\n信号来源：CPU内部，与当前执行的指令有关。\n自愿中断——指令中断（系统中断）\n强迫中断——硬件故障或软件中断\n外中断（狭义上的中断）\n信号来源：CPU外部与但钱执行的指令无关。\n外设请求\n人工干预\n另一种分类方式：\n4.外部中断的处理过程 每条指令执行结束后，CPU 检查是否有外部中断信号 若有外部中断信号，则需要保护中断进程的 CPU 环境 根据中断信号类型转入相应的中断处理程序 恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行 5.知识图谱 ","keywords":["操作系统"],"articleBody":"1.中断机制的诞生 为了解决早期计算机资源利用率低的的问题，人们发明了操作系统，引入了中断机制，实现多道程序并发执行。\n本质：发生了中断也就意味着需要操作系统介入，展开管理工作。CPU 收到计时部件发送的中断信号，切换为内核态，操作系统负责处理中断。\n2.中断的概念和作用 当中断发生时，CPU 立即进入核心态。 当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。 对于不用的中断信号，会进行不同的处理。 中断可以使 CPU 从用户态切换为核心态，使操作系统获得计算机的控制权。有了终端，才能够实现多道程序并发执行。只有在核心态操作系统才能够执行特权指令。从用户态切换到核心态是通过中断实现的，并且是唯一的途径。\n3.中断的分类 中断（广义上的）：\n内中断（也称异常，例外，陷入）\n信号来源：CPU内部，与当前执行的指令有关。\n自愿中断——指令中断（系统中断）\n强迫中断——硬件故障或软件中断\n外中断（狭义上的中断）\n信号来源：CPU外部与但钱执行的指令无关。\n外设请求\n人工干预\n另一种分类方式：\n4.外部中断的处理过程 每条指令执行结束后，CPU 检查是否有外部中断信号 若有外部中断信号，则需要保护中断进程的 CPU 环境 根据中断信号类型转入相应的中断处理程序 恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行 5.知识图谱 ","wordCount":"34","inLanguage":"en","image":"http://localhost:1313/%3Clink%20to%20your%20image%3E","datePublished":"2022-04-10T21:04:11+08:00","dateModified":"2022-04-10T21:04:11+08:00","author":{"@type":"Person","name":"cmlark"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:1313/posts/notes/os/%E4%BA%94%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/"},"publisher":{"@type":"Organization","name":"cmlark's blog","logo":{"@type":"ImageObject","url":"http://localhost:1313/icons/logo.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="cmlark's home page🫣 (Alt + H)"><img src=http://localhost:1313/%F0%9F%AB%A3 alt aria-label=logo height=35>cmlark's home page🫣</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://localhost:1313/ title=🏠首页><span>🏠首页</span></a></li><li><a href=http://localhost:1313/archives/ title=📅归档><span>📅归档</span></a></li><li><a href=http://localhost:1313/search/ title="🔍搜索 (Alt + /)" accesskey=/><span>🔍搜索</span></a></li><li><a href=http://localhost:1313/categories/ title=📚分类><span>📚分类</span></a></li><li><a href=http://localhost:1313/tags/ title=🏷标签><span>🏷标签</span></a></li><li><a href=http://localhost:1313/about/ title=📝关于><span>📝关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://localhost:1313/>Home</a>&nbsp;»&nbsp;<a href=http://localhost:1313/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">五、中断和异常</h1><div class=post-meta><span title='2022-04-10 21:04:11 +0800 CST'>101011-9-100</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;34 words&nbsp;·&nbsp;cmlark&nbsp;|&nbsp;<a href=mailto:cmlark@qq.com/posts/notes/os/%e4%ba%94%e3%80%81%e4%b8%ad%e6%96%ad%e5%92%8c%e5%bc%82%e5%b8%b8.md rel="noopener noreferrer" target=_blank>文章写错啦😱快来敲打敲打博主~</a></div></header><div class=post-content><h4 id=1中断机制的诞生>1.中断机制的诞生<a hidden class=anchor aria-hidden=true href=#1中断机制的诞生>#</a></h4><p>为了解决早期计算机资源利用率低的的问题，人们发明了<strong>操作系统</strong>，引入了<strong>中断机制</strong>，实现多道程序并发执行。</p><p><strong>本质：发生了中断也就意味着需要操作系统介入，展开管理工作。<strong>CPU 收到计时部件发送的</strong>中断信号</strong>，切换为<strong>内核态</strong>，操作系统负责处理中断。</p><h4 id=2中断的概念和作用>2.中断的概念和作用<a hidden class=anchor aria-hidden=true href=#2中断的概念和作用>#</a></h4><ol><li>当中断发生时，CPU 立即进入<strong>核心态</strong>。</li><li>当中断发生后，当前运行的进程暂停执行，并由操作系统内核对中断进行处理。</li><li>对于不用的中断信号，会进行不同的处理。</li></ol><p><strong>中断</strong>可以使 CPU 从<strong>用户态切换为核心态，使操作系统获得计算机的控制权。<strong>有了终端，才能够实现多道程序并发执行。只有在</strong>核心态</strong>操作系统才能够执行特权指令。从<strong>用户态切换到核心态是通过中断实现的，并且是唯一的途径</strong>。</p><h4 id=3中断的分类>3.中断的分类<a hidden class=anchor aria-hidden=true href=#3中断的分类>#</a></h4><p><strong>中断（广义上的）：</strong></p><ol><li><p><strong>内中断（也称异常，例外，陷入）</strong></p><ul><li><p>信号来源：CPU<strong>内部</strong>，与当前执行的指令有关。</p></li><li><p>自愿中断——指令中断（系统中断）</p></li><li><p>强迫中断——硬件故障或软件中断</p></li></ul></li><li><p><strong>外中断（狭义上的中断）</strong></p><ul><li><p>信号来源：CPU<strong>外部</strong>与但钱执行的指令无关。</p></li><li><p>外设请求</p></li><li><p>人工干预</p></li></ul></li></ol><p><strong>另一种分类方式：</strong></p><p><img alt=分类 loading=lazy src=https://s1.ax1x.com/2022/04/10/LAsMqI.png></p><h4 id=4外部中断的处理过程>4.外部中断的处理过程<a hidden class=anchor aria-hidden=true href=#4外部中断的处理过程>#</a></h4><ol><li>每条指令执行结束后，CPU 检查是否有外部中断信号</li><li>若有外部中断信号，则需要保护中断进程的 CPU 环境</li><li>根据中断信号类型转入相应的中断处理程序</li><li>恢复原进程的 CPU 环境并推出中断，返回原进程继续往下执行</li></ol><hr><h4 id=5知识图谱>5.知识图谱<a hidden class=anchor aria-hidden=true href=#5知识图谱>#</a></h4><p><img alt=图谱 loading=lazy src=https://s1.ax1x.com/2022/04/10/LA6gbR.png></p></div><footer class=post-footer><ul class=post-tags><li><a href=http://localhost:1313/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/>操作系统</a></li></ul><nav class=paginav><a class=prev href=http://localhost:1313/posts/notes/hexo/hexo-next%E4%B8%BB%E9%A2%98%E4%BB%A3%E7%A0%81%E5%9D%97%E7%BE%8E%E5%8C%96/><span class=title>« Prev</span><br><span>Hexo Next主题代码块美化</span>
+</a><a class=next href=http://localhost:1313/posts/notes/os/%E5%9B%9B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%B3%BB%E7%BB%9F/><span class=title>Next »</span><br><span>四、操作系统的运行机制与体系系统</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=http://localhost:1313/>cmlark's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

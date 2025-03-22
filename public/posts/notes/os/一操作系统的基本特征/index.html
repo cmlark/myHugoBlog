@@ -1,0 +1,73 @@
+<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>一、操作系统的基本特征 | cmlark's blog</title>
+<meta name=keywords content="操作系统"><meta name=description content="● 操作系统的基本特征
+操作系统的四个特性：并发性，共享性，虚拟性，异步性
+1. 并发性
+并发是指两个或多个事件在同一时间间隔内发生，宏观上是同时发生的，但是微观上是交替发生的。
+操作系统的并发性指计算机系统中同时存在多个运行的程序。
+2. 共享性
+即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。
+（1）两种资源共享方式
+
+互斥共享方式（一个时间段内只允许一个进程访问资源）
+同时共享方式（允许一个时间段内由多个进程“同时”对他们进行访问）
+
+同时是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。
+
+==并发性和共享性两者的关系：==
+假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）
+如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。
+如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。
+即并发性和共享性二者互为存在条件
+3. 虚拟性
+虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。
+
+空分复用技术（如虚拟存储器）
+时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。
+
+4. 异步性
+异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。
+如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，只有系统拥有并发性，才有可能导致异步性。"><meta name=author content="cmlark"><link rel=canonical href=http://localhost:1313/posts/notes/os/%E4%B8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/><meta name=google-site-verification content="XYZabc"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF+13Dyqob6ASlTrTye8=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:1313/icons/logo.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/icons/favicon-16x16.ico><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/icons/favicon-32x32.ico><link rel=apple-touch-icon href=http://localhost:1313/icons/favicon-256x256.ico><link rel=mask-icon href=http://localhost:1313/icons/favicon-32x32.ico><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:1313/posts/notes/os/%E4%B8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="http://localhost:1313/posts/notes/os/%E4%B8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/"><meta property="og:site_name" content="cmlark's blog"><meta property="og:title" content="一、操作系统的基本特征"><meta property="og:description" content="● 操作系统的基本特征 操作系统的四个特性：并发性，共享性，虚拟性，异步性
+1. 并发性 并发是指两个或多个事件在同一时间间隔内发生，宏观上是同时发生的，但是微观上是交替发生的。
+操作系统的并发性指计算机系统中同时存在多个运行的程序。
+2. 共享性 即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。
+（1）两种资源共享方式
+互斥共享方式（一个时间段内只允许一个进程访问资源） 同时共享方式（允许一个时间段内由多个进程“同时”对他们进行访问） 同时是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。
+==并发性和共享性两者的关系：==
+假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）
+如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。 如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。
+即并发性和共享性二者互为存在条件
+3. 虚拟性 虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。
+空分复用技术（如虚拟存储器） 时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。 4. 异步性 异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。
+如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，只有系统拥有并发性，才有可能导致异步性。"><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-09T11:44:01+08:00"><meta property="article:modified_time" content="2022-04-09T11:44:01+08:00"><meta property="article:tag" content="操作系统"><meta property="og:image" content="http://localhost:1313/%3Clink%20to%20your%20image%3E"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://localhost:1313/%3Clink%20to%20your%20image%3E"><meta name=twitter:title content="一、操作系统的基本特征"><meta name=twitter:description content="● 操作系统的基本特征
+操作系统的四个特性：并发性，共享性，虚拟性，异步性
+1. 并发性
+并发是指两个或多个事件在同一时间间隔内发生，宏观上是同时发生的，但是微观上是交替发生的。
+操作系统的并发性指计算机系统中同时存在多个运行的程序。
+2. 共享性
+即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。
+（1）两种资源共享方式
+
+互斥共享方式（一个时间段内只允许一个进程访问资源）
+同时共享方式（允许一个时间段内由多个进程“同时”对他们进行访问）
+
+同时是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。
+
+==并发性和共享性两者的关系：==
+假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）
+如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。
+如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。
+即并发性和共享性二者互为存在条件
+3. 虚拟性
+虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。
+
+空分复用技术（如虚拟存储器）
+时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。
+
+4. 异步性
+异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。
+如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，只有系统拥有并发性，才有可能导致异步性。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://localhost:1313/posts/"},{"@type":"ListItem","position":2,"name":"一、操作系统的基本特征","item":"http://localhost:1313/posts/notes/os/%E4%B8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"一、操作系统的基本特征","name":"一、操作系统的基本特征","description":"● 操作系统的基本特征 操作系统的四个特性：并发性，共享性，虚拟性，异步性\n1. 并发性 并发是指两个或多个事件在同一时间间隔内发生，宏观上是同时发生的，但是微观上是交替发生的。\n操作系统的并发性指计算机系统中同时存在多个运行的程序。\n2. 共享性 即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。\n（1）两种资源共享方式\n互斥共享方式（一个时间段内只允许一个进程访问资源） 同时共享方式（允许一个时间段内由多个进程“同时”对他们进行访问） 同时是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。\n==并发性和共享性两者的关系：==\n假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）\n如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。 如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。\n即并发性和共享性二者互为存在条件\n3. 虚拟性 虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。\n空分复用技术（如虚拟存储器） 时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。 4. 异步性 异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。\n如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，只有系统拥有并发性，才有可能导致异步性。\n","keywords":["操作系统"],"articleBody":"● 操作系统的基本特征 操作系统的四个特性：并发性，共享性，虚拟性，异步性\n1. 并发性 并发是指两个或多个事件在同一时间间隔内发生，宏观上是同时发生的，但是微观上是交替发生的。\n操作系统的并发性指计算机系统中同时存在多个运行的程序。\n2. 共享性 即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。\n（1）两种资源共享方式\n互斥共享方式（一个时间段内只允许一个进程访问资源） 同时共享方式（允许一个时间段内由多个进程“同时”对他们进行访问） 同时是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。\n==并发性和共享性两者的关系：==\n假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）\n如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。 如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。\n即并发性和共享性二者互为存在条件\n3. 虚拟性 虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。\n空分复用技术（如虚拟存储器） 时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。 4. 异步性 异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。\n如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，只有系统拥有并发性，才有可能导致异步性。\n","wordCount":"35","inLanguage":"en","image":"http://localhost:1313/%3Clink%20to%20your%20image%3E","datePublished":"2022-04-09T11:44:01+08:00","dateModified":"2022-04-09T11:44:01+08:00","author":{"@type":"Person","name":"cmlark"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:1313/posts/notes/os/%E4%B8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81/"},"publisher":{"@type":"Organization","name":"cmlark's blog","logo":{"@type":"ImageObject","url":"http://localhost:1313/icons/logo.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="cmlark's home page🫣 (Alt + H)"><img src=http://localhost:1313/%F0%9F%AB%A3 alt aria-label=logo height=35>cmlark's home page🫣</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://localhost:1313/ title=🏠首页><span>🏠首页</span></a></li><li><a href=http://localhost:1313/archives/ title=📅归档><span>📅归档</span></a></li><li><a href=http://localhost:1313/search/ title="🔍搜索 (Alt + /)" accesskey=/><span>🔍搜索</span></a></li><li><a href=http://localhost:1313/categories/ title=📚分类><span>📚分类</span></a></li><li><a href=http://localhost:1313/tags/ title=🏷标签><span>🏷标签</span></a></li><li><a href=http://localhost:1313/about/ title=📝关于><span>📝关于</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://localhost:1313/>Home</a>&nbsp;»&nbsp;<a href=http://localhost:1313/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">一、操作系统的基本特征</h1><div class=post-meta><span title='2022-04-09 11:44:01 +0800 CST'>9091-11-90</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;35 words&nbsp;·&nbsp;cmlark&nbsp;|&nbsp;<a href=mailto:cmlark@qq.com/posts/notes/os/%e4%b8%80%e3%80%81%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%89%b9%e5%be%81.md rel="noopener noreferrer" target=_blank>文章写错啦😱快来敲打敲打博主~</a></div></header><div class=post-content><h2 id=-操作系统的基本特征>● 操作系统的基本特征<a hidden class=anchor aria-hidden=true href=#-操作系统的基本特征>#</a></h2><p>操作系统的四个特性：<strong>并发性，共享性，虚拟性，异步性</strong></p><h4 id=1-并发性>1. 并发性<a hidden class=anchor aria-hidden=true href=#1-并发性>#</a></h4><p>并发是指两个或多个事件在同一时间间隔内发生，<strong>宏观上是同时发生的</strong>，但是<strong>微观上是交替发生的</strong>。</p><p><strong>操作系统的并发性</strong>指计算机系统中同时存在多个运行的程序。</p><h4 id=2-共享性>2. 共享性<a hidden class=anchor aria-hidden=true href=#2-共享性>#</a></h4><p>即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。</p><p>（1）两种资源共享方式</p><ul><li>互斥共享方式（<strong>一个时间段内只允许一个进程访问资源</strong>）</li><li>同时共享方式（<strong>允许一个时间段内由多个进程“同时”对他们进行访问</strong>）</li></ul><p><strong>同时</strong>是宏观上的概念，微观上资源往往是交替进行资源访问的（分时共享）。</p><blockquote><p>==并发性和共享性两者的关系：==</p><p>假如使用 QQ 发送文件 A，使用微信发送文件 B. 1.两个进程正在并发执行（并发性） 2.需要共享地访问硬盘资源（共享性）</p><p>如果失去并发行，系统中只有一个程序在执行，则共享性即失去意义。
+如果失去共享性，QQ 和微信不能同时访问硬盘资源，就无法实现同时发送文件，也就无法并发。</p><p><strong>即并发性和共享性二者互为存在条件</strong></p></blockquote><h4 id=3-虚拟性>3. 虚拟性<a hidden class=anchor aria-hidden=true href=#3-虚拟性>#</a></h4><p>虚拟是指把一个物理上的实体变为逻辑上的对应物，物理实体是实际存在的，而逻辑上对应物是用户感受到的。</p><ul><li>空分复用技术（如虚拟存储器）</li><li>时分复用技术（如虚拟处理器），微观上处理机在各个微小的时间段内交替着为各个进程服务。</li></ul><h4 id=4-异步性>4. 异步性<a hidden class=anchor aria-hidden=true href=#4-异步性>#</a></h4><p>异步是指，在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而是走走停停，以不可预知的速度向前推进，这就是进程的异步性。</p><p>如果失去了并发性，则系统只能串行的执行所有的进程，每个程序的执行会一贯到底，<strong>只有系统拥有并发性，才有可能导致异步性。</strong></p></div><footer class=post-footer><ul class=post-tags><li><a href=http://localhost:1313/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/>操作系统</a></li></ul><nav class=paginav><a class=prev href=http://localhost:1313/posts/notes/os/%E4%BA%8C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8A%9F%E8%83%BD%E5%92%8C%E7%9B%AE%E6%A0%87/><span class=title>« Prev</span><br><span>二、操作系统的概念、功能和目标</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2025 <a href=http://localhost:1313/>cmlark's blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on cmlark&#39;s blog</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on cmlark&#39;s blog</description>
+    <image>
+      <title>cmlark&#39;s blog</title>
+      <url>http://localhost:1313/%3Clink%20to%20your%20image%3E</url>
+      <link>http://localhost:1313/%3Clink%20to%20your%20image%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 15 May 2022 20:05:43 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OS学习笔记</title>
+      <link>http://localhost:1313/categories/os%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 15 May 2022 20:05:43 +0800</pubDate>
+      <guid>http://localhost:1313/categories/os%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hexo</title>
+      <link>http://localhost:1313/categories/hexo/</link>
+      <pubDate>Fri, 15 Apr 2022 09:42:48 +0800</pubDate>
+      <guid>http://localhost:1313/categories/hexo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:1313/categories/markdown/</link>
+      <pubDate>Sat, 09 Apr 2022 11:49:01 +0800</pubDate>
+      <guid>http://localhost:1313/categories/markdown/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

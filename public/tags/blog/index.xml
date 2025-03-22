@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Blog on cmlark&#39;s blog</title>
+    <link>http://localhost:1313/tags/blog/</link>
+    <description>Recent content in Blog on cmlark&#39;s blog</description>
+    <image>
+      <title>cmlark&#39;s blog</title>
+      <url>http://localhost:1313/%3Clink%20to%20your%20image%3E</url>
+      <link>http://localhost:1313/%3Clink%20to%20your%20image%3E</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 Apr 2022 16:10:10 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在GithubPages上搭建Hexo并配置NexT主题</title>
+      <link>http://localhost:1313/posts/notes/hexo/%E5%9C%A8githubpages%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E9%85%8D%E7%BD%AEnext%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Sun, 10 Apr 2022 16:10:10 +0800</pubDate>
+      <guid>http://localhost:1313/posts/notes/hexo/%E5%9C%A8githubpages%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E5%B9%B6%E9%85%8D%E7%BD%AEnext%E4%B8%BB%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;在-githubpages-上搭建-hexo-并配置-next-主题&#34;&gt;在 GithubPages 上搭建 Hexo 并配置 NexT 主题&lt;/h2&gt;
+&lt;h4 id=&#34;啰里啰唆&#34;&gt;啰里啰唆&lt;/h4&gt;
+&lt;p&gt;记录一下自己搭建 blog 的过程，之前在 vps 上配置过 word press，但是一直也没更新，而且好的 vps 很贵维护成本也很高，索性干脆不用了，就尝试一下使用 hexo 在 github 上搭建 blog，效果还不错，总共也就历时两天。网上类似的教程也很多，这里总结记录一下，方便以后开新坑&lt;/p&gt;
+&lt;h4 id=&#34;首先安装-nodejs-和-git-for-windows&#34;&gt;首先安装 Node.js 和 Git for Windows&lt;/h4&gt;
+&lt;p&gt;[Node.js 官网](&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js (nodejs.org)&lt;/a&gt;)，[Git for windows 官网](&lt;a href=&#34;https://git-scm.com/&#34;&gt;Git (git-scm.com)&lt;/a&gt;)，Node.js 建议安装 LTS 长期支持版，支持周期更长且更稳定&lt;/p&gt;
+&lt;p&gt;Node.js:点击第一个绿色的按钮下载 Node.js,版本不需要和图示一致，直接下载最新版即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;LkbK0K.png&#34; loading=&#34;lazy&#34; src=&#34;https://s1.ax1x.com/2022/04/10/LkbK0K.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Git:点击网页左侧小电脑当中的 Download for windows，直接下载最新版即可无需与图示中版本一致。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;LkbmOx.png&#34; loading=&#34;lazy&#34; src=&#34;https://s1.ax1x.com/2022/04/10/LkbmOx.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下载完成后按照默认安装设置安装即可。&lt;/p&gt;
+&lt;h4 id=&#34;在-github-上创建一个仓库&#34;&gt;在 GitHub 上创建一个仓库&lt;/h4&gt;
+&lt;p&gt;首先，需要一个 GitHub 账号。打开 GitHub 官网点击左上角的 sign in 就能注册了，不复述了很简单。进行这个过程可能需要&lt;strong&gt;科学&lt;/strong&gt;上网，具体自行百度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创建一个 Github 仓库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;点击左上角头像，在弹出的下拉菜单中选择 &lt;strong&gt;Your repositories&lt;/strong&gt;，待页面加载完毕后点击左上角绿色的&lt;strong&gt;new&lt;/strong&gt;创建一个仓库。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Lkbum6.png&#34; loading=&#34;lazy&#34; src=&#34;https://s1.ax1x.com/2022/04/10/Lkbum6.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：仓库名务必是**==你的用户名.github.io==**,比如上面我的用户名是 ivy-lun,那么仓库名就是 ivy-lun.github.io,其他的保持默认即可，点击绿色按钮 Create repositories 即可创建一个仓库。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
