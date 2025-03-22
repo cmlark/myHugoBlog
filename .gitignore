@@ -2,7 +2,7 @@
 public/
 resources/
 resources-gen/
-.hugo_build_lock
+.hugo_build.lock
 hugo_stats.json
 
 # 系统文件
