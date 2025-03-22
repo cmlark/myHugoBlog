@@ -31,12 +31,12 @@ echo "resources/" >> .gitignore
 ```bash
 git add .gitignore
 git commit -m "更新忽略规则"
-1.3 历史记录清理（慎用）
 ```
 
-## 1.4 从所有提交历史中彻底删除文件
+## 1.3 历史记录清理（慎用）
 
 ```bash
+# 从所有提交历史中彻底删除文件
 git filter-branch --force --index-filter \
   "git rm --cached --ignore-unmatch <文件路径>" \
   --prune-empty --tag-name-filter cat -- --all
