@@ -113,6 +113,7 @@ params:
   showtoc: false
   tocopen: false
 
+
   assets:
     favicon: /icons/logo.ico
     favicon16x16: /icons/favicon-16x16.ico
@@ -134,11 +135,11 @@ params:
     imageWidth: 120
     imageHeight: 120
     imageTitle: that's me
-    # buttons:
-    #   - name: Telegram
-    #     url: /posts/
-    #   - name: Tags
-    #     url: /tags/
+    buttons:
+      - name: Go!
+        url: /archives/
+      # - name: Tags
+      #   url: /tags/
 
   analytics:
     google:
