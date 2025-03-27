@@ -1,0 +1,24 @@
+{{- /* Head custom content area start */ -}} {{- /* Insert any custom code
+(web-analytics, resources, etc.) - it will appear in the <head></head> section
+of every page. */ -}} {{- /* Can be overwritten by partial with the same name in
+the global layouts. */ -}} {{- /* Head custom content area end */ -}}
+<style>
+  /* 小心心动画 */
+  .heart-click {
+    position: absolute;
+    pointer-events: none;
+    animation: heartFloat 1.2s ease-out forwards;
+    font-size: 20px;
+    opacity: 0.9;
+  }
+  @keyframes heartFloat {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-80px) scale(0.5);
+      opacity: 0;
+    }
+  }
+</style>

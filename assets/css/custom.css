@@ -1,0 +1,19 @@
+/* 小心心动画 */
+.heart-click {
+  position: absolute;
+  pointer-events: none;
+  animation: heartFloat 1.2s ease-out forwards;
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-80px) scale(0.5);
+    opacity: 0;
+  }
+}

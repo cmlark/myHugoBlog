@@ -116,14 +116,14 @@ params:
 
   assets:
     favicon: /icons/logo.ico
-    favicon16x16: /icons/favicon-16x16.ico
-    favicon32x32: /icons/favicon-32x32.ico
-    apple_touch_icon: /icons/favicon-256x256.ico
-    safari_pinned_tab: /icons/favicon-32x32.ico
+    favicon16x16: /icons/favicon16x16.ico
+    favicon32x32: /icons/favicon32x32.ico
+    apple_touch_icon: /icons/favicon256x256.ico
+    safari_pinned_tab: /icons/favicon32x32.ico
 
   label:
     text: "cmlark's home page🫣"
-    icon: "🫣"
+    icon: ""
     iconHeight: 35
 
     # profile-mode

@@ -1,0 +1,36 @@
+{{- /* Footer custom content area start */ -}} {{- /* Insert any custom code
+web-analytics, resources, etc. here */ -}} {{- /* Footer custom content area end
+*/ -}}
+<script>
+  document.addEventListener("click", (e) => {
+    // 表情库 + 对应颜色（可自由扩展）
+    const emojiSet = [
+      { char: "🐹", colors: ["#ff6b6b", "#ff8787"] },
+      { char: "🐻", colors: ["#FFD700", "#FFA500"] },
+      { char: "🐰", colors: ["#FFB6C1", "#FF69B4"] },
+      { char: "🐶", colors: ["#45b7d1", "#6c5ce7"] },
+      { char: "🦄", colors: ["#FF4500", "#FF0000"] },
+    ];
+
+    // 随机选一个表情对象
+    const randomIndex = Math.floor(Math.random() * emojiSet.length);
+    const { char, colors } = emojiSet[randomIndex];
+
+    // 创建元素
+    const heart = document.createElement("div");
+    heart.className = "heart-click";
+    heart.innerHTML = char;
+
+    // 随机颜色 + 大小
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.fontSize = Math.random() * 10 + 20 + "px"; // 20px~30px
+
+    // 随机偏移（让表情不重叠）
+    const offset = 20;
+    heart.style.left = e.clientX + Math.random() * offset - offset / 2 + "px";
+    heart.style.top = e.clientY + Math.random() * offset - offset / 2 + "px";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1200);
+  });
+</script>
